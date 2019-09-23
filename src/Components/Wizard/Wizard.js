@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import axios from 'axios';
 import {Link} from 'react-router-dom'
-
+import './Wizard.css'
 export default class Wizard extends Component {
     constructor(props) {
         super(props) 
@@ -10,10 +10,10 @@ export default class Wizard extends Component {
             address: '',
             city: '',
             state: '',
-            zip: ''
+            zip: 0
         }
         this.handleChange = this.handleChange.bind(this)
-        this.createHouse = this.createHouse.bind(this)
+      
     
     }
 
@@ -34,20 +34,18 @@ export default class Wizard extends Component {
         }
         this.setState({ [prop]: value})
     }
-    createHouse() {
-        const {name, address, city, state, zip} = this.state
-            axios.post('/api/house', {name, address, city, state, zip}).then(() => {
+    createHouse = () => {
+        const {name, address, city, state, zip} = this.state;
+        axios.post('/api/house', {name, address, city, state, zip})
+            .then(res => {
                 this.props.history.push('/')
-              })
-          }
+    })
+}
 
-
-
- 
     render() {
         return (
-            <div>
-
+            <div className ='house-container'>
+                <div className ='input-boxes'>
                 <input type='text'
                        value ={this.state.name}
                        onChange={e => this.handleChange('name',e.target.value)}> 
@@ -65,17 +63,18 @@ export default class Wizard extends Component {
 
                 <input type ='text'
                        value ={this.state.state}
-                       onChange ={e => this.handleChange('state', e.target.value)}>
-                </input>
+                       onChange ={e => this.handleChange('state', e.target.value)} />
+                
 
                 <input type ='number'
                        value ={this.state.zip}
-                       onChange ={e => this.handleChange('zip', e.target.value)}>
-                </input>
+                       onChange ={e => this.handleChange('zip', e.target.value)} />
+                
+                </div>
                 Wizard
                 <button onClick={_ => this.props.history.push('/')}> Cancel </button>
 
-             <Link to ='/'>  <button onClick={() => this.createHouse()}>Complete</button>   </Link>
+             <Link to ='/'>  <button onClick={this.createHouse}>Complete</button>   </Link>
             </div>
         )
     }

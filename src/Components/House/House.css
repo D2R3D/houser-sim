@@ -1,0 +1,21 @@
+
+.House{
+    width: 70vw;
+    height: 40vh;
+    background: rgb(255, 0, 0);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    
+
+}
+
+.house_detail_box {
+    width: 65vw;
+    height: 30vh;
+    background: rgb(82, 200, 255);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-self: center
+}

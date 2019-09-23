@@ -37,9 +37,11 @@ export default class Dashboard extends Component {
     render() {
         return (
             <div>
+                  <button onClick= {_ => this.props.history.push('/wizard')}> Add New Property </button>
+                  
             <div className='dash_prop_container'>
           <h3 className='dash_prop_heading'>Home Listings</h3>
-          {this.state.houses.map(house => {
+          {/* {this.state.houses.map(house => {
             return (
                 <House key={house.id}
                     index={house.id}
@@ -49,10 +51,14 @@ export default class Dashboard extends Component {
                     state={house.state}
                     zip={house.zip}
                     deleteHouse={this.deleteHouse} />
-            )})}
+            )})} */}
+
+            {this.state.houses.map(e => {
+                return <House house ={e} deleteHouse = {this.deleteHouse} key = {e.id} />
+            })}
         </div>
   
-                <button onClick= {_ => this.props.history.push('/wizard')}> Add New Property </button>
+              
                     
             
             </div>

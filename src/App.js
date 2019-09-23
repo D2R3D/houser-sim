@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 // import 'reset-css'
+import './App.css'
 
 import routes from './routes'
 

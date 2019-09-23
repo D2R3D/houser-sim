@@ -1,19 +1,23 @@
-import React, {Component} from 'react'
+import React from 'react'
+import './House.css'
 
 
+export default function House(props) {
+    let { id, name, address, city, state, zip } = props.house;
+    return (
+      <div className='House'>
+        <div className='house_detail_box'>
+          <p>Property Name: {name}</p>
+          <p>Address: {address}</p>
+          <p>City: {city}</p>
+          <p>State: {state}</p>
+          <p>Zip: {zip}</p>
+        </div>
 
-export default class House extends Component {
-    render() {
-        return(
-            <div className='house-cards'>
-                <h1>{this.props.name}</h1>
-                <p>{this.props.address}</p>
-                <p>{this.props.city}</p>
-                <p>{this.props.state}</p>
-                <p>{this.props.zip}</p>
-                <button onClick={this.deleteHouse}>delete</button>
-            </div>
-        )
-    }
-}
+        <div>
+        <button onClick={_ => props.deleteHouse(id)}> Delete </button>
+        </div>
+      </div>
+    )
+  }
 

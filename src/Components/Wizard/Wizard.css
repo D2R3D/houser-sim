@@ -1,0 +1,21 @@
+body{
+    width: 75vw;
+    height: 75vh;
+}
+
+.house-container {
+    height: 45vh;
+    width: 45vw;
+    background: rgb(137, 131, 255);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+
+
+}
+
+.input-boxes {
+    display: flex;
+    flex-direction: column;
+    
+}
